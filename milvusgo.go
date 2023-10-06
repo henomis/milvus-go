@@ -95,3 +95,11 @@ func (c *Client) VectorQuery(
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }
+
+func (c *Client) VectorSearch(
+	ctx context.Context,
+	req *request.VectorSearch,
+	res *response.VectorSearch,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}
