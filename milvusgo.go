@@ -63,3 +63,11 @@ func (c *Client) CollectionList(
 ) error {
 	return c.restClient.Get(ctx, req, res)
 }
+
+func (c *Client) VectorInsert(
+	ctx context.Context,
+	req *request.VectorInsert,
+	res *response.VectorInsert,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}

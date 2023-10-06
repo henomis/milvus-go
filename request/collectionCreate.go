@@ -42,5 +42,5 @@ func (c *CollectionCreate) Encode() (io.Reader, error) {
 }
 
 func (c *CollectionCreate) ContentType() string {
-	return "application/json"
+	return ContentTypeApplicationJSON
 }

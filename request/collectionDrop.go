@@ -24,5 +24,5 @@ func (c *CollectionDrop) Encode() (io.Reader, error) {
 }
 
 func (c *CollectionDrop) ContentType() string {
-	return "application/json"
+	return ContentTypeApplicationJSON
 }
