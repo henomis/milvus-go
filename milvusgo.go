@@ -71,3 +71,11 @@ func (c *Client) VectorInsert(
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }
+
+func (c *Client) VectorGet(
+	ctx context.Context,
+	req *request.VectorGet,
+	res *response.VectorGet,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}

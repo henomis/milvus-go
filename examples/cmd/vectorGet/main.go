@@ -13,16 +13,16 @@ func main() {
 
 	client := milvusgo.New("http://localhost:19530", "root", "Milvus")
 
-	resp := &response.VectorInsert{}
-	err := client.VectorInsert(
+	resp := &response.VectorGet{}
+	err := client.VectorGet(
 		context.Background(),
-		&request.VectorInsert{
+		&request.VectorGet{
 			CollectionName: "test",
-			Data: []request.VectorData{
-				{
-					"key":                      "value",
-					request.DefaultVectorField: []float32{1, 2, 3, 4},
-				},
+			ID:             []int64{444759410565466183},
+			OutputFields: []string{
+				request.DefaultVectorField,
+				request.DefaultVectorField,
+				"key",
 			},
 		},
 		resp,
@@ -32,5 +32,10 @@ func main() {
 	}
 
 	fmt.Printf("resp: %#v\n", resp)
+	for _, v := range resp.Data {
+		fmt.Printf("id: %d\n", v.ID())
+		fmt.Printf("vector: %v\n", v.Vector())
+		fmt.Printf("key: %s\n", v["key"].(string))
+	}
 
 }

@@ -12,9 +12,11 @@ const (
 )
 
 type VectorInsert struct {
-	CollectionName string           `json:"collectionName"`
-	Data           []map[string]any `json:"data"`
+	CollectionName string       `json:"collectionName"`
+	Data           []VectorData `json:"data"`
 }
+
+type VectorData map[string]any
 
 func (c *VectorInsert) Path() (string, error) {
 	return "/v1/vector/insert", nil
