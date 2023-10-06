@@ -14,66 +14,16 @@ This is [Milvus](https://milvus.tech/)'s **unofficial** Go client, designed to e
 ### collections
 - ✅ list
 - ✅ create
-- ✅ collect info
+- ✅ describe
 - ✅ update
+- ✅ drop
+
+### vectors 
+- ✅ get
+- ✅ insert
 - ✅ delete
-- ❌ update aliases
-- ✅ create index
-- ❌ delete index
-- ❌ cluster info
-- ❌ update cluster setup
-- ❌ list aliases
-- ❌ recover from uploaded snapshot
-- ❌ recover from snapshot
-- ❌ create snapshot
-- ❌ delete snapshot
-- ❌ download snapshot
-
-
-### points 
-- ✅ get point
-- ✅ get points
-- ✅ upsert points
-- ✅ delete points
-- ❌ update vectors
-- ❌ delete vectors
-- ❌ set payload
-- ❌ overwrite payload
-- ❌ delete payload
-- ❌ clear payload
-- ❌ scroll payload
-- ✅ search points
-- ❌ search batch points
-- ❌ search point groups
-- ❌ recommend points
-- ❌ recommend batch points
-- ❌ recommend point groups
-- ❌ count points
-
-### cluster
-- ❌ cluster status info
-- ❌ tries to recover current peer Raft state
-- ❌ remove peer
-- ❌ collection cluster info
-- ❌ update collection cluster setup
-
-### snapshots
-- ❌ recover from uploaded snapshot
-- ❌ recover from snapshot
-- ❌ list collection snapshots
-- ❌ create collection snapshot
-- ❌ delete collection snapshot
-- ❌ download collection snapshot
-- ❌ list storage snapshots
-- ❌ create storage snapshot
-- ❌ delete storage snapshot
-- ❌ download storage snapshot
-
-### service
-- ❌ collect telemetry data
-- ❌ collect Prometheus metrics data
-- ❌ set lock options
-- ❌ get lock options
+- ✅ query
+- ✅ search
 
 
 ## Getting started
@@ -89,20 +39,15 @@ go get github.com/henomis/milvus-go
 
 You can run Milvus using Docker:
 ```shell
-docker run -p 6333:6333 --name milvus --rm -v $(pwd)/config.yaml:/milvus/config/production.yaml milvus/milvus
+cd docker && docker-compose up -d
 ```
 
-config.yaml file:
-```yaml
-service:
-  api_key: secret-api-key
-```
 
-Please refer to the [official documentation](https://milvus.tech/) for more information about Milvus.
+Please refer to the [official documentation](https://milvus.io/) for more information about Milvus.
 
 ### Configuration
 
-The only thing you need to start using Milvus's APIs is the API key. Copy and paste it in the corresponding place in the code, select the API and the parameters you want to use, and that's it.
+The only thing you need to start using Milvus's is username and password. Copy and paste it in the corresponding place in the code, select the API and the parameters you want to use, and that's it.
 
 
 ### Usage
@@ -125,19 +70,14 @@ import (
 
 func main() {
 
-	client := milvusgo.New("http://localhost:6333", "secret-api-key")
+	client := milvusgo.New("http://localhost:19530", "root", "Milvus")
 
-	onDisk := true
-	resp := &response.CollectionCreate{}
-	err := client.CollectionCreate(
+	resp := &response.VectorSearch{}
+	err := client.VectorSearch(
 		context.Background(),
-		&request.CollectionCreate{
+		&request.VectorSearch{
 			CollectionName: "test",
-			Vectors: request.VectorsParams{
-				Size:     4,
-				Distance: request.DistanceCosine,
-				OnDisk:   &onDisk,
-			},
+			Vector:         []float64{2, 3, 3, 4},
 		},
 		resp,
 	)
