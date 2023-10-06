@@ -8,6 +8,8 @@
 *.so
 *.dylib
 
+docker/volumes
+
 # Test binary, built with `go test -c`
 *.test
 

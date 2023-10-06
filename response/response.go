@@ -9,8 +9,8 @@ import (
 
 type Response struct {
 	Code           int         `json:"code"`
-	HttpStatusCode int         `json:"httpStatusCode"`
 	Message        string      `json:"message"`
+	HTTPStatusCode int         `json:"-"`
 	RawBody        *string     `json:"-"`
 	Headers        http.Header `json:"-"`
 }
@@ -20,12 +20,11 @@ func (r *Response) IsSuccess() bool {
 }
 
 func (r *Response) SetStatusCode(code int) error {
-	r.HttpStatusCode = code
+	r.HTTPStatusCode = code
 	return nil
 }
 
 func (r *Response) SetBody(body io.Reader) error {
-
 	b, err := io.ReadAll(body)
 	if err != nil {
 		return err

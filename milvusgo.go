@@ -16,7 +16,6 @@ type Client struct {
 }
 
 func New(endpoint, username, password string) *Client {
-
 	restClient := restclientgo.New(endpoint)
 
 	token := fmt.Sprintf("%s:%s", username, password)
