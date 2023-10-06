@@ -35,7 +35,7 @@ type CollectionDescribeData struct {
 }
 
 func (c *CollectionDescribe) AcceptContentType() string {
-	return "application/json"
+	return AcceptContentTypeApplicationJSON
 }
 
 func (c *CollectionDescribe) Decode(body io.Reader) error {

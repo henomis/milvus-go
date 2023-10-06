@@ -7,6 +7,10 @@ import (
 	"github.com/henomis/restclientgo"
 )
 
+const (
+	AcceptContentTypeApplicationJSON string = "application/json"
+)
+
 type Response struct {
 	Code           int         `json:"code"`
 	Message        string      `json:"message"`

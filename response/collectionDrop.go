@@ -11,7 +11,7 @@ type CollectionDrop struct {
 }
 
 func (c *CollectionDrop) AcceptContentType() string {
-	return "application/json"
+	return AcceptContentTypeApplicationJSON
 }
 
 func (c *CollectionDrop) Decode(body io.Reader) error {

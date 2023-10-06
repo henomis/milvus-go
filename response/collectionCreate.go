@@ -11,7 +11,7 @@ type CollectionCreate struct {
 }
 
 func (c *CollectionCreate) AcceptContentType() string {
-	return "application/json"
+	return AcceptContentTypeApplicationJSON
 }
 
 func (c *CollectionCreate) Decode(body io.Reader) error {
