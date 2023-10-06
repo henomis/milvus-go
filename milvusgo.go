@@ -47,3 +47,19 @@ func (c *Client) CollectionDescribe(
 ) error {
 	return c.restClient.Get(ctx, req, res)
 }
+
+func (c *Client) CollectionDrop(
+	ctx context.Context,
+	req *request.CollectionDrop,
+	res *response.CollectionDrop,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}
+
+func (c *Client) CollectionList(
+	ctx context.Context,
+	req *request.CollectionList,
+	res *response.CollectionList,
+) error {
+	return c.restClient.Get(ctx, req, res)
+}
