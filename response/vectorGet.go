@@ -12,10 +12,6 @@ const (
 
 type VectorData map[string]any
 
-func (c VectorData) ID() int64 {
-	return int64(c[DefaultPrimaryField].(float64))
-}
-
 func (c VectorData) Vector() []float64 {
 	interfaceSlice, isIterfaceSliceOk := c[DefaultVectorField].([]interface{})
 	if !isIterfaceSliceOk {

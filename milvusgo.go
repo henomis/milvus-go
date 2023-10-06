@@ -79,3 +79,11 @@ func (c *Client) VectorGet(
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }
+
+func (c *Client) VectorDelete(
+	ctx context.Context,
+	req *request.VectorDelete,
+	res *response.VectorDelete,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}
