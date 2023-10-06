@@ -6,17 +6,19 @@ import (
 	"io"
 )
 
-type VectorGet struct {
+type VectorQuery struct {
 	CollectionName string   `json:"collectionName"`
-	ID             []int64  `json:"id"`
+	Filter         string   `json:"filter"`
 	OutputFields   []string `json:"outputFields,omitempty"`
+	Limit          *string  `json:"limit"`
+	Offset         *string  `json:"offset"`
 }
 
-func (c *VectorGet) Path() (string, error) {
-	return "/v1/vector/get", nil
+func (c *VectorQuery) Path() (string, error) {
+	return "/v1/vector/query", nil
 }
 
-func (c *VectorGet) Encode() (io.Reader, error) {
+func (c *VectorQuery) Encode() (io.Reader, error) {
 	jsonBytes, err := json.Marshal(c)
 	if err != nil {
 		return nil, err
@@ -25,6 +27,6 @@ func (c *VectorGet) Encode() (io.Reader, error) {
 	return bytes.NewReader(jsonBytes), nil
 }
 
-func (c *VectorGet) ContentType() string {
+func (c *VectorQuery) ContentType() string {
 	return ContentTypeApplicationJSON
 }

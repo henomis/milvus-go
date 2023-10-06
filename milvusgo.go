@@ -87,3 +87,11 @@ func (c *Client) VectorDelete(
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }
+
+func (c *Client) VectorQuery(
+	ctx context.Context,
+	req *request.VectorQuery,
+	res *response.VectorQuery,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}
