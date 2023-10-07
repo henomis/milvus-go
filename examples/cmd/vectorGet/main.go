@@ -18,7 +18,7 @@ func main() {
 		context.Background(),
 		&request.VectorGet{
 			CollectionName: "test",
-			ID:             []int64{444759410565466183},
+			ID:             []int64{444778967793664883},
 			OutputFields: []string{
 				request.DefaultVectorField,
 				request.DefaultVectorField,
@@ -33,6 +33,7 @@ func main() {
 
 	fmt.Printf("resp: %#v\n", resp)
 	for _, v := range resp.Data {
+		fmt.Printf("id: %d\n", v.ID())
 		fmt.Printf("vector: %v\n", v.Vector())
 		fmt.Printf("key: %s\n", v["key"].(string))
 	}

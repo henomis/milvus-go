@@ -21,7 +21,7 @@ func main() {
 			Data: []request.VectorData{
 				{
 					"key":                      "value",
-					request.DefaultVectorField: []float32{1, 2, 3, 4},
+					request.DefaultVectorField: []float32{0.1, 0.2, 0.3, 0.4},
 				},
 			},
 		},

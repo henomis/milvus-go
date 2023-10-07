@@ -15,5 +15,7 @@ func (c *VectorQuery) AcceptContentType() string {
 }
 
 func (c *VectorQuery) Decode(body io.Reader) error {
-	return json.NewDecoder(body).Decode(c)
+	dec := json.NewDecoder(body)
+	dec.UseNumber()
+	return dec.Decode(c)
 }
