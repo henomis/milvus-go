@@ -18,7 +18,11 @@ func main() {
 		context.Background(),
 		&request.VectorSearch{
 			CollectionName: "test",
-			Vector:         []float64{2, 3, 3, 4},
+			Vector:         []float64{0.1, 0.2, 0.3, 0.4},
+			OutputFields: []string{
+				request.DefaultVectorField,
+				request.DefaultPrimaryField,
+			},
 		},
 		resp,
 	)
