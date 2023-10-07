@@ -19,6 +19,10 @@ func main() {
 		&request.VectorSearch{
 			CollectionName: "test",
 			Vector:         []float64{2, 3, 3, 4},
+			OutputFields: []string{
+				request.DefaultVectorField,
+				request.DefaultPrimaryField,
+			},
 		},
 		resp,
 	)
@@ -27,5 +31,9 @@ func main() {
 	}
 
 	fmt.Printf("resp: %#v\n", resp)
+	for _, data := range resp.Data {
+		fmt.Printf("data.id: %d\n", data["id"])
+		fmt.Printf("data.Vector(): %#v\n", data.Vector())
+	}
 
 }

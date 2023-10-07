@@ -15,5 +15,7 @@ func (c *VectorSearch) AcceptContentType() string {
 }
 
 func (c *VectorSearch) Decode(body io.Reader) error {
-	return json.NewDecoder(body).Decode(c)
+	dec := json.NewDecoder(body)
+	dec.UseNumber()
+	return dec.Decode(c)
 }
