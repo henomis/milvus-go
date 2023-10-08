@@ -3,11 +3,11 @@
 
 [![GoDoc](https://godoc.org/github.com/henomis/milvus-go?status.svg)](https://godoc.org/github.com/henomis/milvus-go) [![Go Report Card](https://goreportcard.com/badge/github.com/henomis/milvus-go)](https://goreportcard.com/report/github.com/henomis/milvus-go) [![GitHub release](https://img.shields.io/github/release/henomis/milvus-go.svg)](https://github.com/henomis/milvus-go/releases)
 
-This is [Milvus](https://milvus.tech/)'s **unofficial** Go client, designed to enable you to use Milvus's services easily from your own applications.
+This is [Milvus](https://milvus.io/)'s **unofficial** Go client, designed to enable you to use Milvus's services easily from your own applications.
 
 ## Milvus
 
-[Milvus](https://milvus.tech/) is a vector database that allows you to build high-performance vector search applications.
+[Milvus](https://milvus.io/) is a vector database that allows you to build high-performance vector search applications.
 
 ## API support
 
