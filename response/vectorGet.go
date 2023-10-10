@@ -13,11 +13,11 @@ const (
 
 type VectorData map[string]any
 
-func (c VectorData) ID() int64 {
-	if id, isInt64 := c[DefaultPrimaryField].(int64); isInt64 {
+func (c VectorData) ID() uint64 {
+	if id, isInt64 := c[DefaultPrimaryField].(uint64); isInt64 {
 		return id
 	} else if id, isJSONNumber64 := c[DefaultPrimaryField].(json.Number); isJSONNumber64 {
-		idInt64, _ := strconv.ParseInt(string(id), 10, 64)
+		idInt64, _ := strconv.ParseUint(string(id), 10, 64)
 		return idInt64
 	}
 	return 0

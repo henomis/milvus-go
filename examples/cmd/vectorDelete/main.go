@@ -18,7 +18,7 @@ func main() {
 		context.Background(),
 		&request.VectorDelete{
 			CollectionName: "test",
-			ID:             []int64{444759410565466185},
+			ID:             []uint64{444759410565466185},
 		},
 		resp,
 	)

@@ -18,7 +18,7 @@ func main() {
 		context.Background(),
 		&request.VectorGet{
 			CollectionName: "test",
-			ID:             []int64{444778967793664883},
+			ID:             []uint64{444778967793664883},
 			OutputFields: []string{
 				request.DefaultVectorField,
 				request.DefaultVectorField,

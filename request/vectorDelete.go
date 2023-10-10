@@ -7,8 +7,8 @@ import (
 )
 
 type VectorDelete struct {
-	CollectionName string  `json:"collectionName"`
-	ID             []int64 `json:"id"`
+	CollectionName string   `json:"collectionName"`
+	ID             []uint64 `json:"id"`
 }
 
 func (c *VectorDelete) Path() (string, error) {

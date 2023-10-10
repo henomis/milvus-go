@@ -8,7 +8,7 @@ import (
 
 type VectorGet struct {
 	CollectionName string   `json:"collectionName"`
-	ID             []int64  `json:"id"`
+	ID             []uint64 `json:"id"`
 	OutputFields   []string `json:"outputFields,omitempty"`
 }
 
