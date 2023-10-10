@@ -7,25 +7,25 @@ import (
 )
 
 type CollectionCreate struct {
-	DBName         *string     `json:"dbName,omitempty"`
-	CollectionName string      `json:"collectionName"`
-	Dimension      int64       `json:"dimension"`
-	MetricType     *MetricType `json:"metricType"`
-	PrimaryField   *string     `json:"primaryField,omitempty"`
-	VectorField    *string     `json:"vectorField,omitempty"`
-	Description    *string     `json:"description,omitempty"`
+	DBName         *string `json:"dbName,omitempty"`
+	CollectionName string  `json:"collectionName"`
+	Dimension      int64   `json:"dimension"`
+	MetricType     *Metric `json:"metricType"`
+	PrimaryField   *string `json:"primaryField,omitempty"`
+	VectorField    *string `json:"vectorField,omitempty"`
+	Description    *string `json:"description,omitempty"`
 }
 
-type MetricType string
+type Metric string
 
 const (
-	L2             MetricType = "L2"
-	IP             MetricType = "IP"
-	HAMMING        MetricType = "HAMMING"
-	JACCARD        MetricType = "JACCARD"
-	TANIMOTO       MetricType = "TANIMOTO"
-	SUBSTRUCTURE   MetricType = "SUBSTRUCTURE"
-	SUPERSTRUCTURE MetricType = "SUPERSTRUCTURE"
+	MetricL2             Metric = "L2"
+	MetricIP             Metric = "IP"
+	MetricHamming        Metric = "HAMMING"
+	MetricJaccard        Metric = "JACCARD"
+	MetricTanimoto       Metric = "TANIMOTO"
+	MetricSubstructure   Metric = "SUBSTRUCTURE"
+	MetricSuperstructure Metric = "SUPERSTRUCTURE"
 )
 
 func (c *CollectionCreate) Path() (string, error) {
