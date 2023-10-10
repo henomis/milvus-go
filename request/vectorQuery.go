@@ -10,8 +10,8 @@ type VectorQuery struct {
 	CollectionName string   `json:"collectionName"`
 	Filter         string   `json:"filter"`
 	OutputFields   []string `json:"outputFields,omitempty"`
-	Limit          *string  `json:"limit"`
-	Offset         *string  `json:"offset"`
+	Limit          *string  `json:"limit,omitempty"`
+	Offset         *string  `json:"offset,omitempty"`
 }
 
 func (c *VectorQuery) Path() (string, error) {

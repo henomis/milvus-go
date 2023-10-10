@@ -10,7 +10,7 @@ type CollectionCreate struct {
 	DBName         *string `json:"dbName,omitempty"`
 	CollectionName string  `json:"collectionName"`
 	Dimension      int64   `json:"dimension"`
-	MetricType     *Metric `json:"metricType"`
+	MetricType     *Metric `json:"metricType,omitempty"`
 	PrimaryField   *string `json:"primaryField,omitempty"`
 	VectorField    *string `json:"vectorField,omitempty"`
 	Description    *string `json:"description,omitempty"`

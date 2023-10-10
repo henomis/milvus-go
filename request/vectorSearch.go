@@ -8,10 +8,10 @@ import (
 
 type VectorSearch struct {
 	CollectionName string    `json:"collectionName"`
-	Filter         *string   `json:"filter"`
+	Filter         *string   `json:"filter,omitempty"`
 	OutputFields   []string  `json:"outputFields,omitempty"`
-	Limit          *string   `json:"limit"`
-	Offset         *string   `json:"offset"`
+	Limit          *string   `json:"limit,omitempty"`
+	Offset         *string   `json:"offset,omitempty"`
 	Vector         []float64 `json:"vector"`
 }
 
