@@ -7,8 +7,9 @@ import (
 )
 
 const (
-	DefaultVectorField  = "vector"
-	DefaultPrimaryField = "id"
+	DefaultVectorField   = "vector"
+	DefaultPrimaryField  = "id"
+	DefaultDistanceField = "distance"
 )
 
 type VectorInsert struct {
