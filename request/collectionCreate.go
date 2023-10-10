@@ -20,7 +20,7 @@ type Metric string
 
 const (
 	MetricL2             Metric = "L2"
-	MetricIp             Metric = "IP"
+	MetricIP             Metric = "IP"
 	MetricHamming        Metric = "HAMMING"
 	MetricJaccard        Metric = "JACCARD"
 	MetricTanimoto       Metric = "TANIMOTO"
